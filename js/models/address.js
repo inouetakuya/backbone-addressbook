@@ -1,5 +1,20 @@
-$(function() {
+$(function () {
   var Address = Backbone.Model.extend({
-    // あとで実装する
+    defaults: {
+      name: ''
+    },
+
+    initialize: function () {
+      if (!this.get('name')) {
+        this.get({name: this.defaults.name})
+      }
+    },
+
+    validate: function (attributes) {
+      var name = attributes.name;
+      if (!name || name === this.defaults.name) {
+        return 'Error!';
+      }
+    }
   });
-})
+});
