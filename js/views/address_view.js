@@ -4,17 +4,19 @@ var AddressView = Backbone.View.extend({
 
   events: {
     'dblclick label.name': 'rename',
-    'click button.delete': 'clear',
+    'click button.delete': 'clear'
   },
 
   initialize: function () {
     this.model.bind('change', this.render, this);
-    this.model.bind('destory', this.remove, this);
+    this.model.bind('destroy', this.remove, this);
   },
 
   render: function () {
     $(this.el).html(
-      $('<label class="name">').text(this.model.get('name'))).append('<button class="delete">Delete</button>');
+      $('<label class="name">').text(this.model.get('name'))
+    ).append('<button class="delete">Delete</button>');
+
     return this;
   },
 

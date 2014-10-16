@@ -5,7 +5,7 @@ var Address = Backbone.Model.extend({
 
   initialize: function () {
     if (!this.get('name')) {
-      this.get({name: this.defaults.name})
+      this.set({name: this.defaults.name})
     }
   },
 
