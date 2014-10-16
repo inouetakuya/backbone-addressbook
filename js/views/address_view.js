@@ -14,7 +14,7 @@ var AddressView = Backbone.View.extend({
 
   render: function() {
     $(this.el).html(
-      $('<label class="name">').text(this.model.get('name'));
+      $('<label class="name">').text(this.model.get('name'))
     ).append('<button class="delete">Delete</button>');
     return this;
   },

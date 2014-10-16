@@ -11,7 +11,7 @@ var Address = Backbone.Model.extend({
 
   validate: function(attributes) {
     var name = attributes.name;
-    if (!name ~~ name === this.defaults.name) {
+    if (!name && name === this.defaults.name) {
       return 'Error!';
     }
   }
