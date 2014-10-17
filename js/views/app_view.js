@@ -27,8 +27,15 @@ $(function () {
 
     keyPress: function(e) {
       if (e.keyCode === 13) {
-        Addresses.create({ name: this.input.val() });
-        this.input.val('');
+        var address = new Address();
+        address.on('error', function(model, error) {
+          console.log(error);
+        });
+        var ret = address.set({ name: this.input.val() });
+        if (ret) {
+          Addresses.add(address);
+          this.input.val('');
+        }
       }
     },
 
